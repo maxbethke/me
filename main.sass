@@ -1,0 +1,116 @@
+$clr-dark: #424242
+$clr-bright: white
+$clr-primary: #81f787
+
+// =======================
+//  Root Styles
+// =======================
+
+*
+    box-sizing: border-box
+body
+    background: $clr-dark
+    color: $clr-bright
+    font-family: 'Roboto', sans-serif
+    margin: 0
+
+// =======================
+//  Header and Topnav
+// =======================
+
+header
+    grid-area: header
+    display: flex
+    flex-flow: column nowrap
+    .brand
+        display: flex
+        align-items: center
+        &__logo
+            width: 100px
+            height: auto
+            border-radius: 50px
+        &__title
+            display: inline-block
+            font-size: 2rem
+            font-weight: 900
+            padding-left: 0.5em
+    topnav
+        .list
+            border-bottom: 15px solid $clr-primary
+            border-top: 15px solid $clr-primary
+            list-style-type: none
+            padding: 0
+            margin: 0
+            display: flex
+            flex-flow: column
+            &__item
+                flex: 1
+                text-align: center
+                a
+                    padding: 1em
+                    color: $clr-primary
+                    text-decoration: none
+                    display: block
+                    &:hover
+                        background: white
+
+// =======================
+//  Responsiveness
+// =======================
+
+.page-container
+    display: grid
+    grid-template-columns: 3% 94% 3%
+    grid-template-rows: auto
+    grid-template-areas: "header header header" "side--left content side--right" "footer footer footer"
+    grid-row-gap: 1em
+
+// =======================
+//  Sections and Cards
+// =======================
+
+content
+    grid-area: content
+    display: flex
+    flex-flow: column nowrap
+    #view
+        .section
+            &__title
+               font-size: 1.5rem
+               font-weight: 300
+               text-transform: uppercase
+               padding-bottom: 1em
+               &::before
+                   content: "//"
+                   padding-right: 0.5em
+
+.card
+    border: 3px solid $clr-bright
+    &__header
+        font-size: 1.5rem
+        text-align: center
+        pointer-events: none
+        padding: 1em
+        background-image: url("//unsplash.it/500/150")
+        background-position-x: center
+        background-position-y: top
+        h2
+            position: relative
+            display: inline-block
+            color: $clr-bright
+            z-index: 10
+            &::after
+                content: ""
+                position: absolute
+                top: -10px
+                right: -10px
+                bottom: -10px
+                left: -10px
+                background-color: $clr-dark
+                transform: skewX(-20deg)
+    &__body
+        display: none
+        padding: 0em 1em 1em 1em
+.card + .card
+    margin-top: 1em
+                        
