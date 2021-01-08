@@ -15,15 +15,22 @@ body
     margin: 0
 
 // =======================
-//  Header and Topnav
+//  Header
 // =======================
 
-header
+.header
     grid-area: header
     display: flex
-    flex-flow: column nowrap
+    flex-flow: row wrap
+    align-items: center
+    justify-content: space-between
+    padding: 0.5em
+    background-color: black
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7)
     .brand
+        align-self: flex-start
         display: flex
+        flex-flow: row nowrap
         align-items: center
         &__logo
             width: 100px
@@ -34,25 +41,64 @@ header
             font-size: 2rem
             font-weight: 900
             padding-left: 0.5em
-    topnav
-        .list
-            border-bottom: 15px solid $clr-primary
-            border-top: 15px solid $clr-primary
-            list-style-type: none
-            padding: 0
+    &__bars
+        margin: auto
+        padding: 0 1em 0 1em
+        font-size: 2rem
+        z-index: 11
+
+@media screen and (min-width: 500px) 
+    .header__bars
             margin: 0
-            display: flex
-            flex-flow: column
-            &__item
-                flex: 1
-                text-align: center
-                a
-                    padding: 1em
-                    color: $clr-primary
-                    text-decoration: none
-                    display: block
-                    &:hover
-                        background: white
+// =======================
+//  Menu
+// =======================
+
+.menu__toggle
+    transition:linear opacity 0.5s // This has to be set for the .fadeOut() to work
+    cursor: pointer
+
+.menu
+    &__blackout
+        display: none
+        position: fixed
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        background-color: rgba(0, 0, 0, 0.5)
+        z-index: 10
+    &__collapse
+        position: absolute
+        top: 0
+        right: 100vw
+        bottom: 0
+        left: -70vw
+        background: grey
+        transition: ease-in-out all 0.5s
+        z-index: 11
+    &__list
+        list-style-type: none
+        padding: 0
+        margin: 0
+        display: flex
+        flex-flow: column
+        &__item
+            flex: 1
+            text-align: center
+            a
+                display: flex
+                flex-flow: row
+                padding: 1em
+                color: $clr-primary
+                text-decoration: none
+                justify-content: space-between
+                &:hover
+                    background: white
+                    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7)
+            &__icon
+                justify-self: flex-end
+
 
 // =======================
 //  Responsiveness
@@ -94,23 +140,20 @@ content
         background-image: url("//unsplash.it/500/150")
         background-position-x: center
         background-position-y: top
+        clip-path: polygon(0 0, 100% 0, 100% 120%, 80% 100%, 20% 1000%, 0 120%)
         h2
             position: relative
             display: inline-block
-            color: $clr-bright
-            z-index: 10
-            &::after
-                content: ""
-                position: absolute
-                top: -10px
-                right: -10px
-                bottom: -10px
-                left: -10px
-                background-color: $clr-dark
-                transform: skewX(-20deg)
+            padding: 0.3em
+            background-color: white
+            color: black
+            border-radius: 10px
+            mix-blend-mode: screen
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.7)
     &__body
         display: none
-        padding: 0em 1em 1em 1em
+        padding: 1em
+        margin-top: -2em
 .card + .card
     margin-top: 1em
                         
