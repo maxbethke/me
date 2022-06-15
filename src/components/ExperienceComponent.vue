@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 import BulletListComponent from '@/components/BulletListComponent'
 
 export default {
@@ -24,7 +23,7 @@ export default {
   components: { BulletListComponent },
   data: () => ({
     startDate: '2021-04-01',
-    yearsSinceStart: moment().diff('2021-04-01', 'years', true),
+    yearsSinceStart: 0,
     techstack: [
       {name: 'Symfony', exp: 4, field: 'be'},
       {name: 'Vue.js', exp: 5, field: 'fe'},
@@ -60,6 +59,9 @@ export default {
       {name: 'Sustainability'},
     ],
   }),
+  created() {
+    this.yearsSinceStart = (new Date().getTime()-new Date(this.startDate).getTime())/1000/(60*60*24*365)
+  }
 }
 </script>
 
