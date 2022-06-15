@@ -3,6 +3,7 @@
     <v-img
         class="sidebar__image"
         :src="headerSideImage"
+        height="105vh"
     >
       <div class="gradient-border--to-right"></div>
       <div class="gradient-border--to-bottom"></div>
@@ -16,7 +17,7 @@ import headerSideImage from '@/assets/Max-removed-banner.jpg'
 export default {
   name: 'SidebarComponent',
   data: () => ({
-    headerSideImage: headerSideImage
+    headerSideImage: headerSideImage,
   }),
 }
 </script>
@@ -26,7 +27,7 @@ export default {
   padding: 0 !important
   height: 100%
   &__image
-    height: 100%
+    height: 105vh
     $gradient-width: 50px
     .gradient-border
       position: absolute

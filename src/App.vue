@@ -42,5 +42,4 @@ export default {
   font-size: 1.5rem
   .header-row
     margin-bottom: 50px
-    height: 105vh
 </style>
