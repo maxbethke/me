@@ -1,28 +1,37 @@
 <template>
-  <v-container
-      class="list"
-  >
-    <div
-        v-for="item in list"
-        :key="item._id"
-        class="item"
-        :style="{
+  <v-container class="pa-0">
+    <div class="list" v-if="items.length > 0">
+      <div
+          v-for="item in items"
+          :key="item._id"
+          class="item"
+          :style="{
           backgroundColor: color
         }"
-    >
-      {{ item.name }}
-      <div
-          v-if="item.exp"
-          class="item__exp-bar"
-          :style="{width: item.exp*10+'%'}"
-      ></div>
-      <v-icon
-          v-if="item.field"
-          class="exp-bar__icon"
       >
-        {{ fieldIcons[item.field] }}
-      </v-icon>
+        {{ item.name }}
+        <div
+            v-if="item.exp"
+            class="item__exp-bar"
+            :style="{width: item.exp*10+'%'}"
+        ></div>
+        <v-icon
+            v-if="item.field"
+            class="exp-bar__icon"
+        >
+          {{ fieldIcons[item.field] }}
+        </v-icon>
+      </div>
     </div>
+    <v-alert v-if="items.length < 1 &&! isLoading &&! loadingError" type="info">
+      This list is empty
+    </v-alert>
+    <v-alert v-if="isLoading" type="info">
+      Loading list...
+    </v-alert>
+    <v-alert v-if="loadingError" type="error">
+      There was an error loading this list.
+    </v-alert>
   </v-container>
 </template>
 
@@ -30,7 +39,8 @@
 export default {
   name: 'BulletListComponent',
   props: {
-    list: Array,
+    retriever: Function,
+    retrieverArgument: String,
     color: {
       type: String,
       default: 'purple'
@@ -38,12 +48,24 @@ export default {
   },
   data: () => ({
     fieldIcons: {
-      be: 'mdi-server',
-      fe: 'mdi-laptop',
-      db: 'mdi-database',
-      pkg: 'mdi-package-variant-closed'
+      Backend: 'mdi-server',
+      Frontend: 'mdi-laptop',
+      Database: 'mdi-database',
+      "Package Manager": 'mdi-package-variant-closed'
+    },
+    items: [],
+    isLoading: true,
+    loadingError: false
+  }),
+  async created() {
+    try {
+      this.items = await this.retriever(this.retrieverArgument)
+    } catch (e) {
+      this.loadingError = true
+    } finally {
+      this.isLoading = false
     }
-  })
+  }
 }
 </script>
 
