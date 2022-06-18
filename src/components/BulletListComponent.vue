@@ -59,6 +59,7 @@ export default {
 
     font-weight: 500
     font-size: 0.8em
+    color: white
 
     //background-color wil be set in template
     border-radius: 5px

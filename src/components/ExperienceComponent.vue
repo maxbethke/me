@@ -1,15 +1,15 @@
 <template>
   <v-container>
-    <span>During my <b>{{yearsSinceStart.toFixed(1) }}</b> years in the craft, I had the pleasure to work
+    <span>During my <b>{{ yearsSinceStart.toFixed(1) }}</b> years in the craft, I had the pleasure to work
       with many exciting technologies, such as</span>
     <BulletListComponent :list="techstack"/>
-    <span>in why I was able to learn a lot about</span>
+    <span>in which I was able to learn a lot about</span>
     <BulletListComponent :list="languages" color="slateblue"/>
     <br />
-    <span>I have learned to love these tools, as I use them on a daily basis living my dream</span>
+    <span>I have learned to love these tools, as I use them on a daily basis</span>
     <BulletListComponent :list="tools" color="darkgreen"/>
     <br />
-    <span>Big projects are not done alone. I thrive to work in teams that can do more than simply the sum of their
+    <span>Big projects are not completed alone. I thrive to work in teams that can do more than simply the sum of their
       members.</span>
     <BulletListComponent :list="softSkills" color="gray"/>
   </v-container>

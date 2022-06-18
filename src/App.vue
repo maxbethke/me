@@ -1,16 +1,17 @@
 <template>
   <v-app>
     <v-main>
-      <v-row class="header-row">
-        <v-col cols="4" class="sidebar-wrapper">
-          <SidebarComponent/>
-        </v-col>
-        <v-col>
+      <v-row>
           <HeaderComponent/>
-        </v-col>
       </v-row>
       <v-row>
-        <ExperienceComponent/>
+<!--        <v-col>-->
+<!--          <SidebarComponent/>-->
+<!--        </v-col>-->
+        <v-col class="pt-0">
+          <HeadlineComponent text="Experience"/>
+          <ExperienceComponent/>
+        </v-col>
       </v-row>
     </v-main>
   </v-app>
@@ -19,15 +20,15 @@
 <script>
 import HeaderComponent from '@/components/HeaderComponent'
 import ExperienceComponent from '@/components/ExperienceComponent'
-import SidebarComponent from '@/components/SidebarComponent'
+import HeadlineComponent from '@/components/HeadlineComponent'
 
 export default {
   name: 'App',
 
   components: {
-    SidebarComponent,
     ExperienceComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeadlineComponent
   },
 
   data: () => ({
@@ -36,10 +37,9 @@ export default {
 </script>
 
 <style lang="sass">
+*
+  box-sizing: border-box
 .v-main
-  background-color: #010101
-  color: white
+  background-color: #CDCDCD
   font-size: 1.5rem
-  .header-row
-    margin-bottom: 50px
 </style>
