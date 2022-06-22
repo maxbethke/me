@@ -11,6 +11,8 @@
         <v-col class="pt-0">
           <HeadlineComponent text="Experience"/>
           <ExperienceComponent/>
+          <HeadlineComponent text="Projects"/>
+          <ProjectsComponent/>
         </v-col>
       </v-row>
     </v-main>
@@ -21,6 +23,7 @@
 import HeaderComponent from '@/components/HeaderComponent'
 import ExperienceComponent from '@/components/ExperienceComponent'
 import HeadlineComponent from '@/components/HeadlineComponent'
+import ProjectsComponent from '@/components/ProjectsComponent'
 
 export default {
   name: 'App',
@@ -28,7 +31,8 @@ export default {
   components: {
     ExperienceComponent,
     HeaderComponent,
-    HeadlineComponent
+    HeadlineComponent,
+    ProjectsComponent
   },
 
   data: () => ({

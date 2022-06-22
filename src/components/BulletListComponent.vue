@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0">
+  <v-container>
     <div class="list" v-if="items.length > 0">
       <div
           v-for="item in items"
@@ -72,7 +72,7 @@ export default {
 <style lang="sass" scoped>
 .list
   display: flex
-  padding: 0
+  margin: -12px
   flex-wrap: wrap
   .item
     position: relative
@@ -88,7 +88,7 @@ export default {
 
     padding: 10px
     margin: 10px
-    min-width: 150px
+    min-width: 160px
     overflow: hidden
     &__exp-bar
       position: absolute
