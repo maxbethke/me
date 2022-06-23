@@ -2,9 +2,33 @@
   <v-container class="experience">
     <span>During my <b>{{ yearsSinceStart.toFixed(1) }}</b> years in the craft, I had the pleasure to work
       with many exciting technologies, such as</span>
-    <v-container>
-      <BulletListComponent :retriever="query" retrieverArgument="techstack"/>
-    </v-container>
+    <div
+      v-if="fields.length > 0"
+    >
+      <v-container
+        v-for="group of fields"
+        :key="group._id"
+        class="group"
+      >
+        <div
+            class="divider"
+            @click="group.shown = !group.shown"
+        >
+          <div class="divider__caret">
+            <v-icon v-if="group.shown">mdi-menu-down</v-icon>
+            <v-icon v-else>mdi-menu-right</v-icon>
+          </div>
+          {{ group.name }}
+          <div class="divider__line"></div>
+        </div>
+        <v-expand-transition>
+          <BulletListComponent
+              v-show="group.shown"
+              :retriever="() => techstack.filter(item => item.field === group.name)"
+          />
+        </v-expand-transition>
+      </v-container>
+    </div>
     <span>in which I was able to learn a lot about</span>
     <v-container>
       <BulletListComponent :retriever="query" retrieverArgument="tools" color="slateblue"/>
@@ -33,13 +57,21 @@ export default {
   data: () => ({
     startDate: '2021-04-01',
     yearsSinceStart: 0,
+    techstack: [],
+    fields: []
   }),
-  created() {
+  async created() {
     this.yearsSinceStart = (new Date().getTime()-new Date(this.startDate).getTime())/1000/(60*60*24*365)
+    await this.queryTechstack()
+    this.fields = [... new Set(this.techstack.map(item => item.field))]
+        .map(uniqueField => ({name: uniqueField, shown: true}))
   },
   methods: {
     query(database) {
       return ApiService.queryNotion(database)
+    },
+    async queryTechstack() {
+      this.techstack = await this.query('techstack')
     }
   }
 }
@@ -48,4 +80,21 @@ export default {
 <style lang="sass" scoped>
 .experience
   font-size: 1.5rem
+  .group + .group
+    padding-top: 0
+  .divider
+    display: flex
+    align-items: center
+    color: rgba(0, 0, 0, .5)
+    font-size: .8em
+    margin-bottom: 12px
+    cursor: pointer
+    &__caret
+      margin: 0 12px
+    &__line
+      content: ' '
+      margin-left: 12px
+      border: 1px solid rgba(0, 0, 0, .5)
+      flex-grow: 1
+      height: max-content
 </style>

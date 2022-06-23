@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0" fluid>
+  <v-container class="pa-0">
     <div class="list" v-if="items.length > 0">
       <div
           v-for="item in items"
@@ -51,7 +51,8 @@ export default {
       Backend: 'mdi-server',
       Frontend: 'mdi-laptop',
       Database: 'mdi-database',
-      "Package Manager": 'mdi-package-variant-closed'
+      "Package Manager": 'mdi-package-variant-closed',
+      "eCommerce Framework": 'mdi-cart',
     },
     items: [],
     isLoading: true,
@@ -72,7 +73,6 @@ export default {
 <style lang="sass" scoped>
 .list
   display: flex
-  margin: -0.5em
   flex-wrap: wrap
   .item
     position: relative
@@ -87,10 +87,12 @@ export default {
     //background-color wil be set in template
     border-radius: 5px
 
-    padding: 10px
-    margin: 0.5em
+    padding: 12px
     min-width: 10em
     overflow: hidden
+
+    margin-bottom: 12px
+    margin-right: 12px
     &__exp-bar
       position: absolute
       bottom: 0
