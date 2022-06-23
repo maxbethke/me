@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div v-if="projects.length > 0">
+    <div v-if="projects.length > 0" class="projects">
       <div
           v-for="item in projects"
           :key="item._id"
@@ -46,6 +46,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="sass" scoped>
+.projects
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  grid-gap: 1em
 </style>

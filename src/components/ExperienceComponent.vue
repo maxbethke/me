@@ -1,17 +1,25 @@
 <template>
-  <v-container>
+  <v-container class="experience">
     <span>During my <b>{{ yearsSinceStart.toFixed(1) }}</b> years in the craft, I had the pleasure to work
       with many exciting technologies, such as</span>
-    <BulletListComponent :retriever="query" retrieverArgument="techstack"/>
+    <v-container>
+      <BulletListComponent :retriever="query" retrieverArgument="techstack"/>
+    </v-container>
     <span>in which I was able to learn a lot about</span>
-    <BulletListComponent :retriever="query" retrieverArgument="tools" color="slateblue"/>
+    <v-container>
+      <BulletListComponent :retriever="query" retrieverArgument="tools" color="slateblue"/>
+    </v-container>
     <br />
     <span>I have learned to love these tools, as I use them on a daily basis</span>
-    <BulletListComponent :retriever="query" retrieverArgument="languages" color="darkgreen"/>
+    <v-container>
+      <BulletListComponent :retriever="query" retrieverArgument="languages" color="darkgreen"/>
+    </v-container>
     <br />
     <span>Big projects are not completed alone. I thrive to work in teams that can do more than simply the sum of their
       members.</span>
-    <BulletListComponent :retriever="query" retrieverArgument="softskills" color="gray"/>
+    <v-container>
+      <BulletListComponent :retriever="query" retrieverArgument="softskills" color="gray"/>
+    </v-container>
   </v-container>
 </template>
 
@@ -38,5 +46,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
+.experience
+  font-size: 1.5rem
 </style>

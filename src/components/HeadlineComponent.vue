@@ -21,12 +21,10 @@ export default {
 .content-headline__wrapper
   background-color: rgba(0, 0, 0, 0.1)
   position: relative
-  .decoration
+  .stripe
     position: absolute
     background-color: rgba(0, 0, 0, 0.02)
     bottom: 0
-  .stripe
-    @extend .decoration
     top: 0
     &--right
       @extend .stripe
@@ -42,4 +40,5 @@ export default {
   font-size: 2rem
   &__inner
     display: inline-block
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2)
 </style>

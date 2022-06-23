@@ -45,5 +45,4 @@ export default {
   box-sizing: border-box
 .v-main
   background-color: #CDCDCD
-  font-size: 1.5rem
 </style>
