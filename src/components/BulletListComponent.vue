@@ -6,8 +6,9 @@
           :key="item._id"
           class="item"
           :style="{
-          backgroundColor: color
-        }"
+            backgroundColor: color,
+            minWidth: item.exp ? '10em' : null
+          }"
       >
         {{ item.name }}
         <div
@@ -17,7 +18,7 @@
         ></div>
         <v-icon
             v-if="item.field"
-            class="exp-bar__icon"
+            class="item__icon"
         >
           {{ fieldIcons[item.field] }}
         </v-icon>
@@ -26,9 +27,11 @@
     <v-alert v-if="items.length < 1 &&! isLoading &&! loadingError" type="info">
       This list is empty
     </v-alert>
-    <v-alert v-if="isLoading" type="info">
-      Loading list...
-    </v-alert>
+    <v-progress-circular
+        v-if="isLoading"
+        indeterminate
+        color="primary"
+    ></v-progress-circular>
     <v-alert v-if="loadingError" type="error">
       There was an error loading this list.
     </v-alert>
@@ -87,11 +90,12 @@ export default {
     border-radius: 5px
 
     padding: 12px
-    min-width: 10em
     overflow: hidden
 
     margin-bottom: 12px
     margin-right: 12px
+    &__icon
+      margin-left: 12px
     &__exp-bar
       position: absolute
       bottom: 0

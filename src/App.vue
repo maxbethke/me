@@ -5,12 +5,13 @@
           <HeaderComponent/>
       </v-row>
       <v-row>
-<!--        <v-col>-->
-<!--          <SidebarComponent/>-->
-<!--        </v-col>-->
         <v-col class="pt-0">
           <HeadlineComponent text="Experience"/>
           <ExperienceComponent/>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
           <HeadlineComponent text="Projects"/>
           <ProjectsComponent/>
         </v-col>

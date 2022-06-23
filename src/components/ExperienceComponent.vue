@@ -1,11 +1,13 @@
 <template>
   <v-container class="experience">
-    <span>During my <b>{{ yearsSinceStart.toFixed(1) }}</b> years in the craft, I had the pleasure to work
-      with many exciting technologies, such as</span>
+    <p>
+      During my <b>{{ yearsSinceStart.toFixed(1) }}</b> years in the craft, I had the pleasure to work
+      with many exciting technologies, such as
+    </p>
     <div
       v-if="fields.length > 0"
     >
-      <v-container
+      <div
         v-for="group of fields"
         :key="group._id"
         class="group"
@@ -28,23 +30,15 @@
               :retriever="() => techstack.filter(item => item.field === group.name)"
           />
         </v-expand-transition>
-      </v-container>
+      </div>
     </div>
-    <span>in which I was able to learn a lot about</span>
-    <v-container>
-      <BulletListComponent class="list" :retriever="query" retrieverArgument="languages" color="slateblue"/>
-    </v-container>
-    <br />
-    <span>I have learned to love these tools, as I use them on a daily basis</span>
-    <v-container>
-      <BulletListComponent class="list" :retriever="query" retrieverArgument="tools" color="darkgreen"/>
-    </v-container>
-    <br />
-    <span>Big projects are not completed alone. I thrive to work in teams that can do more than simply the sum of their
-      members.</span>
-    <v-container>
-      <BulletListComponent class="list" :retriever="query" retrieverArgument="softskills" color="gray"/>
-    </v-container>
+    <p>While working with those technologies, I was able to learn a lot about</p>
+    <BulletListComponent class="list" :retriever="query" retrieverArgument="languages" color="slateblue"/>
+    <p>I have learned to love these tools, as I use them on a daily basis</p>
+    <BulletListComponent class="list" :retriever="query" retrieverArgument="tools" color="darkgreen"/>
+    <p>Big projects are not completed alone. I thrive to work in teams that can do more than simply the sum of their
+      members. Those are the softskills I bring</p>
+    <BulletListComponent class="list" :retriever="query" retrieverArgument="softskills" color="gray"/>
   </v-container>
 </template>
 
