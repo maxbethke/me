@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0">
+  <v-container class="pa-0" fluid>
     <div class="list" v-if="items.length > 0">
       <div
           v-for="item in items"
@@ -81,7 +81,6 @@ export default {
     align-items: center
 
     font-weight: 500
-    font-size: 0.8em
     color: white
 
     //background-color wil be set in template

@@ -24,6 +24,7 @@
         <v-expand-transition>
           <BulletListComponent
               v-show="group.shown"
+              class="list"
               :retriever="() => techstack.filter(item => item.field === group.name)"
           />
         </v-expand-transition>
@@ -31,18 +32,18 @@
     </div>
     <span>in which I was able to learn a lot about</span>
     <v-container>
-      <BulletListComponent :retriever="query" retrieverArgument="tools" color="slateblue"/>
+      <BulletListComponent class="list" :retriever="query" retrieverArgument="languages" color="slateblue"/>
     </v-container>
     <br />
     <span>I have learned to love these tools, as I use them on a daily basis</span>
     <v-container>
-      <BulletListComponent :retriever="query" retrieverArgument="languages" color="darkgreen"/>
+      <BulletListComponent class="list" :retriever="query" retrieverArgument="tools" color="darkgreen"/>
     </v-container>
     <br />
     <span>Big projects are not completed alone. I thrive to work in teams that can do more than simply the sum of their
       members.</span>
     <v-container>
-      <BulletListComponent :retriever="query" retrieverArgument="softskills" color="gray"/>
+      <BulletListComponent class="list" :retriever="query" retrieverArgument="softskills" color="gray"/>
     </v-container>
   </v-container>
 </template>
@@ -79,7 +80,7 @@ export default {
 
 <style lang="sass" scoped>
 .experience
-  font-size: 1.5rem
+  font-size: 1.4rem
   .group + .group
     padding-top: 0
   .divider
@@ -97,4 +98,6 @@ export default {
       border: 1px solid rgba(0, 0, 0, .5)
       flex-grow: 1
       height: max-content
+  .list
+    font-size: 1.2rem
 </style>

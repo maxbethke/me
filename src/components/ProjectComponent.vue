@@ -36,6 +36,12 @@
       >
         <v-container class="project__head" fluid>
           <v-card-title class="title">{{ project.name }}</v-card-title>
+          <v-btn
+            @click="closeProject"
+            icon
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
         </v-container>
         <v-container class="project__techstack" fluid>
           <BulletListComponent :retriever="() => project.techstack"/>
@@ -52,7 +58,7 @@
           ><b>Ongoing</b></span>
         </v-container>
         <v-divider></v-divider>
-        <v-container>
+        <v-container fluid>
           <div
             v-for="block in project.contentBlocks"
             :key="block._id"
@@ -139,6 +145,7 @@ export default {
   .block
     &--heading_1
       font-size: 1.5em
+      margin-bottom: 12px
       &:not(:first-child)
         margin-top: 1em
     &--bulleted_list_item
@@ -155,5 +162,5 @@ export default {
       border-left: 3px solid black
       padding: 10px
     &--paragraph
-      margin: 10px 0
+      margin-bottom: 12px
 </style>
