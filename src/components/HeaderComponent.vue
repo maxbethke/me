@@ -33,8 +33,8 @@ export default {
     headerSideImage: headerSideImage,
     specializationText: 'Software-Development',
     specializationTextPosition: 1,
-    typingSpeedStandardDeviation: 300,
-    typingSpeed: 1000
+    typingSpeedStandardDeviation: 50,
+    typingSpeed: 150
   }),
   created() {
     setTimeout(this.raiseSpecializationTextPosition, this.typingSpeed)
@@ -45,8 +45,11 @@ export default {
     },
     raiseSpecializationTextPosition() {
       this.specializationTextPosition++
+
+      if(this.specializationTextPosition === this.specializationText.length) return
+
       const typingSpeed =
-          this.typingSpeed = (
+          this.typingSpeed + (
             + (Math.random()*this.typingSpeedStandardDeviation)
             - (this.typingSpeedStandardDeviation/2)
           )
