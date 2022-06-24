@@ -105,6 +105,8 @@ export default {
 
     margin-bottom: 12px
     margin-right: 12px
+
+    box-shadow: 3px 5px 10px rgb(0 0 0 / 20%)
     &__icon
       margin-left: 12px
     &__exp-bar

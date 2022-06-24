@@ -44,6 +44,11 @@ export default {
   async created() {
     try {
       this.projects = await queryNotion('projects')
+      this.projects.sort((a, b) => {
+        if(!Object.prototype.hasOwnProperty.call(a, 'until') || a.until === null) return -1
+        if(a.until > b.until) return -1
+        return 0
+      })
     } catch (e) {
       this.loadingError = true
     } finally {

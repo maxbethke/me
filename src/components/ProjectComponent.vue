@@ -21,6 +21,7 @@
             <span
                 v-if="dates.from"
             ><b>From</b>: {{ dates.from }}</span>
+            <span v-else>&nbsp;</span>
             <span
                 v-if="dates.until"
             ><b>Until</b>: {{ dates.until }}</span>
