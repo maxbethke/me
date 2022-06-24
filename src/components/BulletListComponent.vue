@@ -4,10 +4,9 @@
       <div
           v-for="item in items"
           :key="item._id"
-          class="item"
+          :class="`item${item.exp ? '--fixed-width' : ''}`"
           :style="{
             backgroundColor: color,
-            minWidth: item.exp ? '10em' : null
           }"
       >
         {{ item.name }}
@@ -47,6 +46,10 @@ export default {
     color: {
       type: String,
       default: 'purple'
+    },
+    sort: {
+      type: Boolean,
+      default: true
     }
   },
   data: () => ({
@@ -64,6 +67,12 @@ export default {
   async created() {
     try {
       this.items = await this.retriever(this.retrieverArgument)
+      if(this.sort) {
+        this.items.sort((a, b) => {
+          if(a.exp > b.exp) return -1
+          return 0
+        })
+      }
     } catch (e) {
       this.loadingError = true
     } finally {
@@ -74,6 +83,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@import '~vuetify/src/styles/settings/_variables'
+
 .list
   display: flex
   flex-wrap: wrap
@@ -102,5 +113,11 @@ export default {
       left: 0
       height: 10%
       background-color: cornflowerblue
+    &--fixed-width
+      @extend .item
+      min-width: 10em
 
+@media #{map-get($display-breakpoints, 'xs-only')}
+  .item--fixed-width
+    width: 100%
 </style>
