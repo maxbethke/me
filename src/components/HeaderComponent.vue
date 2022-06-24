@@ -18,7 +18,14 @@
             <h1 class="intro--name">Maximilian Bethke</h1>
           </div>
           <p>and I do</p>
-          <p class="intro--standout specializationText">{{ getCurrentSpecializationText() }}</p>
+          <div
+              class="intro--standout specializationText"
+              :key="ticker"
+          >
+            <p v-for="char in specializationText.split('').slice(0, specializationTextPosition)" :key="char._id">
+              {{ char }}
+            </p>
+          </div>
         </div>
       </v-col>
     </v-row>
@@ -40,9 +47,6 @@ export default {
     setTimeout(this.raiseSpecializationTextPosition, this.typingSpeed)
   },
   methods: {
-    getCurrentSpecializationText() {
-      return this.specializationText.slice(0, this.specializationTextPosition)
-    },
     raiseSpecializationTextPosition() {
       this.specializationTextPosition++
 
@@ -97,22 +101,17 @@ export default {
       margin: 0 !important
 .specializationText
   position: relative
-  display: inline-block
+  display: inline-flex
   font-family: Monospace, sans-serif
-  &::after
-    position: absolute
-    content: ' '
-    right: 0
-    bottom: 10px
-    width: 20px
-    background: white
-    height: 3px
-    opacity: 0
+  p:last-child
+    background-color: white
+    color: black
     animation: cursor-blink 1.5s steps(1) infinite
 
 @keyframes cursor-blink
   50%
-    opacity: 1
+    background-color: unset
+    color: white
 
 @media #{map-get($display-breakpoints, 'sm-and-down')}
   .gradient-border
