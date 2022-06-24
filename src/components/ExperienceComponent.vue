@@ -44,7 +44,7 @@
 
 <script>
 import BulletListComponent from '@/components/BulletListComponent'
-import ApiService from '@/services/ApiService'
+import { queryNotion } from '@/services/ApiService'
 
 export default {
   name: 'ExperienceComponent',
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     query(database) {
-      return ApiService.queryNotion(database)
+      return queryNotion(database)
     },
     async queryTechstack() {
       this.techstack = await this.query('techstack')
@@ -84,11 +84,9 @@ export default {
     font-size: .8em
     margin-bottom: 12px
     cursor: pointer
-    &__caret
-      margin: 0 12px
     &__line
       content: ' '
-      margin-left: 12px
+      margin-left: 6px
       border: 1px solid rgba(0, 0, 0, .5)
       flex-grow: 1
       height: max-content

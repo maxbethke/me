@@ -1,7 +1,7 @@
 <template>
   <v-container class="header" fluid>
     <v-row>
-      <v-col md="4" sm="12" class="pb-0">
+      <v-col md="4" sm="12">
         <v-img
             class="header__image"
             :src="headerSideImage"
@@ -11,7 +11,7 @@
           <div class="gradient-border--to-bottom"></div>
         </v-img>
       </v-col>
-      <v-col class="pb-0">
+      <v-col>
         <div class="intro">
           <div class="intro__head">
             <p class="intro--standout"><b>Hi</b>, my name is</p>
@@ -64,7 +64,7 @@ export default {
 .header
   position: relative
   background-color: #010101
-  padding: 0
+  padding: 0 !important
   color: white
   border-bottom: 10px solid grey
   .gradient-border
@@ -121,5 +121,6 @@ export default {
     &--to-bottom
       display: block !important
   .intro
-    margin: 4em 0 !important
+    height: 100vh
+    font-size: 1.3rem !important
 </style>

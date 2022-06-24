@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import ApiService from '@/services/ApiService'
+import { queryNotion } from '@/services/ApiService'
 import ProjectComponent from '@/components/ProjectComponent'
 
 export default {
@@ -43,7 +43,7 @@ export default {
   }),
   async created() {
     try {
-      this.projects = await ApiService.queryNotion('projects')
+      this.projects = await queryNotion('projects')
     } catch (e) {
       this.loadingError = true
     } finally {

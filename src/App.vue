@@ -5,7 +5,7 @@
           <HeaderComponent/>
       </v-row>
       <v-row>
-        <v-col class="pt-0">
+        <v-col>
           <HeadlineComponent text="Experience"/>
           <ExperienceComponent/>
         </v-col>
@@ -46,4 +46,8 @@ export default {
   box-sizing: border-box
 .v-main
   background-color: #CDCDCD
+  .row,
+  .col
+    margin: 0
+    padding: 0
 </style>
