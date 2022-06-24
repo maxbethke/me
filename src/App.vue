@@ -16,6 +16,11 @@
           <ProjectsComponent/>
         </v-col>
       </v-row>
+      <v-row>
+        <v-col>
+          <FooterComponent/>
+        </v-col>
+      </v-row>
     </v-main>
   </v-app>
 </template>
@@ -25,6 +30,7 @@ import HeaderComponent from '@/components/HeaderComponent'
 import ExperienceComponent from '@/components/ExperienceComponent'
 import HeadlineComponent from '@/components/HeadlineComponent'
 import ProjectsComponent from '@/components/ProjectsComponent'
+import FooterComponent from '@/components/FooterComponent'
 
 export default {
   name: 'App',
@@ -33,7 +39,8 @@ export default {
     ExperienceComponent,
     HeaderComponent,
     HeadlineComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    FooterComponent
   },
 
   data: () => ({
