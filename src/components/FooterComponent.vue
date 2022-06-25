@@ -26,6 +26,7 @@ export default {
   display: flex
   align-items: center
   justify-content: space-evenly
+  color: rgba(0, 0, 0, .54)
   &__copyright::before
     content: '\00A9'
 </style>

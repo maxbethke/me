@@ -40,11 +40,11 @@ export default {
     headerSideImage: headerSideImage,
     specializationText: 'Software-Development',
     specializationTextPosition: 1,
-    typingSpeedStandardDeviation: 50,
+    typingSpeedStandardDeviation: 100,
     typingSpeed: 150
   }),
   created() {
-    setTimeout(this.raiseSpecializationTextPosition, this.typingSpeed)
+    setTimeout(this.raiseSpecializationTextPosition, this.typingSpeed*2)
   },
   methods: {
     raiseSpecializationTextPosition() {
@@ -52,11 +52,7 @@ export default {
 
       if(this.specializationTextPosition === this.specializationText.length) return
 
-      const typingSpeed =
-          this.typingSpeed + (
-            + (Math.random()*this.typingSpeedStandardDeviation)
-            - (this.typingSpeedStandardDeviation/2)
-          )
+      const typingSpeed = this.typingSpeed + (Math.random()*this.typingSpeedStandardDeviation)
       setTimeout(this.raiseSpecializationTextPosition, typingSpeed)
     }
   }
