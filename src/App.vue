@@ -18,6 +18,12 @@
       </v-row>
       <v-row>
         <v-col>
+          <HeadlineComponent text="About"/>
+          <AboutComponent/>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
           <FooterComponent/>
         </v-col>
       </v-row>
@@ -30,6 +36,7 @@ import HeaderComponent from '@/components/HeaderComponent'
 import ExperienceComponent from '@/components/ExperienceComponent'
 import HeadlineComponent from '@/components/HeadlineComponent'
 import ProjectsComponent from '@/components/ProjectsComponent'
+import AboutComponent from '@/components/AboutComponent'
 import FooterComponent from '@/components/FooterComponent'
 
 export default {
@@ -40,7 +47,8 @@ export default {
     HeaderComponent,
     HeadlineComponent,
     ProjectsComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent
   },
 
   created() {

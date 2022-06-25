@@ -6,6 +6,7 @@
             class="header__image"
             :src="headerSideImage"
             height="100vh"
+            @load="showIntro"
         >
           <div class="gradient-border--to-right"></div>
           <div class="gradient-border--to-bottom"></div>
@@ -21,7 +22,6 @@
             <p>and I do</p>
             <div
                 class="intro--standout specializationText"
-                :key="ticker"
             >
               <p v-for="char in specializationText.split('').slice(0, specializationTextPosition)" :key="char._id">
                 {{ char }}
@@ -47,10 +47,6 @@ export default {
     introDefer: 500,
     isIntroShown: false
   }),
-  created() {
-    setTimeout(this.raiseSpecializationTextPosition, this.typingSpeed+(this.introDefer*2))
-    setTimeout(() => this.isIntroShown = true, this.introDefer)
-  },
   methods: {
     raiseSpecializationTextPosition() {
       this.specializationTextPosition++
@@ -59,6 +55,12 @@ export default {
 
       const typingSpeed = this.typingSpeed + (Math.random()*this.typingSpeedStandardDeviation)
       setTimeout(this.raiseSpecializationTextPosition, typingSpeed)
+    },
+    showIntro() {
+      setTimeout(() => {
+        this.isIntroShown = true
+        setTimeout(this.raiseSpecializationTextPosition, this.typingSpeed+this.introDefer)
+      }, this.introDefer)
     }
   }
 }
