@@ -12,21 +12,23 @@
         </v-img>
       </v-col>
       <v-col>
-        <div class="intro">
-          <div class="intro__head">
-            <p class="intro--standout"><b>Hi</b>, my name is</p>
-            <h1 class="intro--name">Maximilian Bethke</h1>
+        <v-slide-y-transition>
+          <div class="intro" v-show="isIntroShown">
+            <div class="intro__head">
+              <p class="intro--standout"><b>Hi</b>, my name is</p>
+              <h1 class="intro--name">Maximilian Bethke</h1>
+            </div>
+            <p>and I do</p>
+            <div
+                class="intro--standout specializationText"
+                :key="ticker"
+            >
+              <p v-for="char in specializationText.split('').slice(0, specializationTextPosition)" :key="char._id">
+                {{ char }}
+              </p>
+            </div>
           </div>
-          <p>and I do</p>
-          <div
-              class="intro--standout specializationText"
-              :key="ticker"
-          >
-            <p v-for="char in specializationText.split('').slice(0, specializationTextPosition)" :key="char._id">
-              {{ char }}
-            </p>
-          </div>
-        </div>
+        </v-slide-y-transition>
       </v-col>
     </v-row>
   </v-container>
@@ -39,12 +41,15 @@ export default {
   data: () => ({
     headerSideImage: headerSideImage,
     specializationText: 'Software-Development',
-    specializationTextPosition: 1,
+    specializationTextPosition: 0,
     typingSpeedStandardDeviation: 100,
-    typingSpeed: 150
+    typingSpeed: 100,
+    introDefer: 500,
+    isIntroShown: false
   }),
   created() {
-    setTimeout(this.raiseSpecializationTextPosition, this.typingSpeed*2)
+    setTimeout(this.raiseSpecializationTextPosition, this.typingSpeed+(this.introDefer*2))
+    setTimeout(() => this.isIntroShown = true, this.introDefer)
   },
   methods: {
     raiseSpecializationTextPosition() {

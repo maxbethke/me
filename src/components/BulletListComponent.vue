@@ -88,6 +88,7 @@ export default {
 .list
   display: flex
   flex-wrap: wrap
+  width: 100%
   .item
     position: relative
     display: flex
@@ -122,4 +123,5 @@ export default {
 @media #{map-get($display-breakpoints, 'xs-only')}
   .item--fixed-width
     width: 100%
+    margin-right: unset !important
 </style>
