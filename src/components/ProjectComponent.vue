@@ -6,16 +6,23 @@
       <template v-slot:activator="{ on }">
         <v-card
             class="project"
-            elevation="6"
             v-bind="on"
             @click="openProject"
         >
           <v-container class="project__head">
-            <v-card-title class="title">{{ project.name }}</v-card-title>
+            <v-card-title v-show="!project.isLoading" class="title">{{ project.name }}</v-card-title>
+            <v-skeleton-loader
+              v-show="project.isLoading"
+              type="heading"
+            ></v-skeleton-loader>
             <v-icon>mdi-arrow-expand</v-icon>
           </v-container>
           <v-container class="project__techstack">
-            <BulletListComponent :retriever="() => project.techstack"/>
+            <v-skeleton-loader
+              v-show="project.isLoading"
+              type="chip"
+            ></v-skeleton-loader>
+            <BulletListComponent v-if="!project.isLoading" :retriever="() => project.techstack"/>
           </v-container>
           <v-container class="project__time">
             <span
@@ -34,6 +41,7 @@
 
       <v-card
           class="project project--expanded"
+          :loading="project.isLoading"
       >
         <v-container class="project__head" fluid>
           <v-card-title class="title">{{ project.name }}</v-card-title>
@@ -45,12 +53,16 @@
           </v-btn>
         </v-container>
         <v-container class="project__techstack" fluid>
-          <BulletListComponent :retriever="() => project.techstack"/>
+          <v-skeleton-loader
+            v-show="project.isLoading"
+            type="chip"
+          ></v-skeleton-loader>
+          <BulletListComponent v-if="!project.isLoading" :retriever="() => project.techstack"/>
         </v-container>
         <v-container class="project__time" fluid>
-          <span
-              v-if="dates.from"
-          ><b>From</b>: {{ dates.from }}</span>
+        <span
+            v-if="dates.from"
+        ><b>From</b>: {{ dates.from }}</span>
           <span
               v-if="dates.until"
           ><b>Until</b>: {{ dates.until }}</span>
@@ -61,9 +73,9 @@
         <v-divider></v-divider>
         <v-container fluid>
           <div
-            v-for="block in project.contentBlocks"
-            :key="block._id"
-            :class="`block--${block.type}`"
+              v-for="block in project.contentBlocks"
+              :key="block._id"
+              :class="`block--${block.type}`"
           >
             <div
                 v-for="innerBlock in block.content"
@@ -75,7 +87,7 @@
           </div>
         </v-container>
       </v-card>
-  </v-dialog>
+    </v-dialog>
 </template>
 
 <script>

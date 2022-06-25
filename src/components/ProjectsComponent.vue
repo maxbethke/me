@@ -6,7 +6,7 @@
         color="primary"
     ></v-progress-linear>
     <v-container>
-      <div v-if="projects.length > 0" class="projects">
+      <div class="projects">
         <div
             v-for="item in projects"
             :key="item._id"
@@ -15,10 +15,7 @@
         </div>
       </div>
       <v-alert v-if="projects.length < 1 &&! isLoading &&! loadingError" type="info">
-        No projects found... thats odd
-      </v-alert>
-      <v-alert v-if="isLoading" type="info">
-        Loading projects... this could take a while
+        No projects found
       </v-alert>
       <v-alert v-if="loadingError" type="error">
         There was an error loading my projects.
@@ -37,7 +34,7 @@ export default {
     ProjectComponent
   },
   data: () => ({
-    projects: [],
+    projects: new Array(9).fill({isLoading: true}),
     loadingError: false,
     isLoading: true
   }),
@@ -64,7 +61,8 @@ export default {
 .projects
   display: grid
   grid-template-columns: 1fr 1fr 1fr
-  grid-gap: 1em
+  grid-gap: 24px
+  padding: 12px 0
 
 @media #{map-get($display-breakpoints, 'sm-and-down')}
   .projects
