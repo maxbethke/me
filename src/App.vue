@@ -43,6 +43,10 @@ export default {
     FooterComponent
   },
 
+  created() {
+    document.title = 'Maximilian Bethke: Software-Developer with passion';
+  },
+
   data: () => ({
   }),
 };
