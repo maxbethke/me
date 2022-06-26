@@ -61,8 +61,7 @@ export default {
 .projects
   display: grid
   grid-template-columns: 1fr 1fr 1fr
-  grid-gap: 24px
-  padding: 12px 0
+  grid-gap: 12px
 
 @media #{map-get($display-breakpoints, 'sm-and-down')}
   .projects

@@ -105,6 +105,7 @@ export default {
 .specializationText
   position: relative
   display: inline-flex
+  flex-wrap: wrap
   font-family: Monospace, sans-serif
   p:last-child
     background-color: white

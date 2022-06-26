@@ -1,6 +1,6 @@
 <template>
   <v-container class="pa-0" fluid>
-    <div class="list" v-if="items.length > 0">
+    <div class="bullet-list" v-if="items.length > 0">
       <div
           v-for="item in items"
           :key="item._id"
@@ -85,10 +85,10 @@ export default {
 <style lang="sass" scoped>
 @import '~vuetify/src/styles/settings/_variables'
 
-.list
+.bullet-list
   display: flex
   flex-wrap: wrap
-  width: 100%
+  margin: -6px !important
   .item
     position: relative
     display: flex
@@ -101,11 +101,9 @@ export default {
     //background-color wil be set in template
     border-radius: 5px
 
+    margin: 6px
     padding: 12px
     overflow: hidden
-
-    margin-bottom: 12px
-    margin-right: 12px
 
     box-shadow: 3px 5px 10px rgb(0 0 0 / 20%)
     &__icon
@@ -123,5 +121,4 @@ export default {
 @media #{map-get($display-breakpoints, 'xs-only')}
   .item--fixed-width
     width: 100%
-    margin-right: unset !important
 </style>

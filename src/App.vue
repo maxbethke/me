@@ -2,10 +2,12 @@
   <v-app>
     <v-main>
       <v-row>
+        <v-col class="pb-0">
           <HeaderComponent/>
+        </v-col>
       </v-row>
       <v-row>
-        <v-col>
+        <v-col class="pt-0">
           <HeadlineComponent text="Experience"/>
           <ExperienceComponent/>
         </v-col>
@@ -63,10 +65,7 @@ export default {
 <style lang="sass">
 *
   box-sizing: border-box
-.v-main
+body, .v-main
   background-color: #CDCDCD
-  .row,
-  .col
-    margin: 0
-    padding: 0
+  overflow: hidden
 </style>

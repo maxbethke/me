@@ -1,7 +1,6 @@
 <template>
     <v-dialog
         v-model="isExpanded"
-        class="project"
     >
       <template v-slot:activator="{ on }">
         <v-card
@@ -40,7 +39,7 @@
       </template>
 
       <v-card
-          class="project project--expanded"
+          class="project--expanded"
           :loading="project.isLoading"
       >
         <v-container class="project__head" fluid>
@@ -136,7 +135,6 @@ export default {
 
 <style lang="sass" scoped>
 .project
-  min-width: 300px
   &__head
     display: flex
     justify-content: space-between

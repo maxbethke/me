@@ -1,8 +1,8 @@
 <template>
   <v-container class="about">
     <v-row>
-      <v-col>
-        <v-card>
+      <v-col cols="12" sm="6">
+        <v-card class="about__section">
           <v-card-title>About this site</v-card-title>
           <v-card-text>
             <p>This site should have given you some insight into my professional life.</p>
@@ -24,8 +24,8 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col>
-        <v-card>
+      <v-col cols="12" sm="6">
+        <v-card class="about__section">
           <v-card-title>About me</v-card-title>
           <v-card-text>
             <p>I have been tinkering with websites since I was 13 and I am still amazed on how
@@ -34,7 +34,6 @@
             <p>When I am not developing software I either do research on resources that interest
               me - which include investment, finance and psychology - read books or meditate.</p>
             <p>Over at <a href="https://blog.maxbethke.de">my blog</a> I irregularly write about what is on my mind.</p>
-            <p></p>
           </v-card-text>
         </v-card>
       </v-col>
@@ -49,10 +48,4 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.about
-  padding: 24px 12px
-  .row
-    margin: -12px
-  .col
-    padding: 12px
 </style>

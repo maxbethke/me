@@ -1,6 +1,6 @@
 <template>
   <v-container class="experience">
-    <p>
+    <p class="experience__paragraph">
       During my <b>{{ yearsSinceStart.toFixed(1) }}</b> years in the craft, I had the pleasure to work
       with many exciting technologies, such as
     </p>
@@ -32,11 +32,11 @@
         </v-expand-transition>
       </div>
     </div>
-    <p>While working with those technologies, I was able to learn a lot about</p>
+    <p class="experience__paragraph">While working with those technologies, I was able to learn a lot about</p>
     <BulletListComponent class="list" :retriever="query" retrieverArgument="languages" color="slateblue"/>
-    <p>I have learned to love these tools, as I use them on a daily basis</p>
+    <p class="experience__paragraph">I have learned to love these tools, as I use them on a daily basis</p>
     <BulletListComponent class="list" :retriever="query" retrieverArgument="tools" color="darkgreen"/>
-    <p>Big projects are not completed alone. I thrive to work in teams that can do more than simply the sum of their
+    <p class="experience__paragraph">Big projects are not completed alone. I thrive to work in teams that can do more than simply the sum of their
       members. Those are the softskills I bring</p>
     <BulletListComponent class="list" :retriever="query" retrieverArgument="softskills" color="gray"/>
   </v-container>
@@ -75,8 +75,10 @@ export default {
 <style lang="sass" scoped>
 .experience
   font-size: 1.4rem
+  &__paragraph:not(:first-child)
+    margin: 24px 0 12px
   .group + .group
-    padding-top: 0
+    margin-top: 12px
   .divider
     display: flex
     align-items: center

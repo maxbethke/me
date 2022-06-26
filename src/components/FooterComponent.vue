@@ -37,6 +37,7 @@ export default {
   display: flex
   align-items: center
   justify-content: space-evenly
+  flex-wrap: wrap
   color: rgba(0, 0, 0, .54)
   .icon
     color: rgb(0, 0, 0)
