@@ -5,7 +5,7 @@
         text
         href="https://youtu.be/UF8uR6Z6KLc"
       >
-        Stay hungry, stay foolish <span class="icon">🔥</span>
+        Stay hungry, stay foolish 🔥
       </v-btn>
     </div>
     <div class="footer__copyright"> 2022 Maximilian Bethke</div>
@@ -38,9 +38,7 @@ export default {
   align-items: center
   justify-content: space-evenly
   flex-wrap: wrap
-  color: rgba(0, 0, 0, .54)
-  .icon
-    color: rgb(0, 0, 0)
+  color: rgba(0, 0, 0, .54) !important
   &__copyright::before
     content: '\00A9'
 </style>

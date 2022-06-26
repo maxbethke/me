@@ -33,7 +33,7 @@
               of this new age is called data.</p>
             <p>When I am not developing software I either do research on resources that interest
               me - which include investment, finance and psychology - read books or meditate.</p>
-            <p>Over at <a href="https://blog.maxbethke.de">my blog</a> I irregularly write about what is on my mind.</p>
+            <p>Over at <a href="https://blog.maxbethke.de">my blog 🇩🇪</a> I irregularly write about what is on my mind.</p>
           </v-card-text>
         </v-card>
       </v-col>
