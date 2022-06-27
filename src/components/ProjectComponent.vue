@@ -1,6 +1,7 @@
 <template>
     <v-dialog
         v-model="isExpanded"
+        max-width="850px"
     >
       <template v-slot:activator="{ on }">
         <v-card
@@ -39,7 +40,7 @@
       </template>
 
       <v-card
-          class="project--expanded"
+          class="project project--expanded"
           :loading="project.isLoading"
       >
         <v-container class="project__head" fluid>
