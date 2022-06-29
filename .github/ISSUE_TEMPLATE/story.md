@@ -12,3 +12,7 @@ assignees: maxbethke
 **So that**
 
 # Acceptance Criteria
+
+# Possible or known Impediments
+
+# Hints
