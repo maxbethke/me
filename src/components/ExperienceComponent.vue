@@ -89,9 +89,9 @@ export default {
     &__line
       content: ' '
       margin-left: 6px
-      border: 1px solid rgba(0, 0, 0, .5)
+      background: rgba(0, 0, 0, .5)
       flex-grow: 1
-      height: max-content
+      height: 2px
   .list
     font-size: 1.2rem
 </style>
