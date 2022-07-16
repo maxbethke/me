@@ -89,7 +89,7 @@ export default {
     &__line
       content: ' '
       margin-left: 6px
-      border: 1px solid rgba(0, 0, 0, .5)
+      border-bottom: 2px solid rgba(0, 0, 0, .5)
       flex-grow: 1
       height: max-content
   .list
