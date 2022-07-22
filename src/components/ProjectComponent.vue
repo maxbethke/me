@@ -59,10 +59,24 @@
           ></v-skeleton-loader>
           <BulletListComponent v-if="!project.isLoading" :retriever="() => project.techstack"/>
         </v-container>
-        <v-container class="project__time" fluid>
-        <span
-            v-if="dates.from"
-        ><b>From</b>: {{ dates.from }}</span>
+        <v-container class="project__metadata" fluid>
+          <div
+              v-show="project.roles != undefined"
+              class="role"
+          >
+            <v-chip
+                v-for="role in project.roles"
+                :color="role.color"
+                text-color="white"
+                label
+                :key="role._id"
+            >
+              {{ role.text }}
+            </v-chip>
+          </div>
+          <span
+              v-if="dates.from"
+          ><b>From</b>: {{ dates.from }}</span>
           <span
               v-if="dates.until"
           ><b>Until</b>: {{ dates.until }}</span>
@@ -150,10 +164,13 @@ export default {
     justify-content: space-between
     flex-wrap: wrap
   &--expanded
-    .project__time
-      justify-content: start
+    .project__metadata
+      align-items: center
       span
         margin-right: 1em
+      .role
+        display: inline-block
+        font-weight: 800
   .block
     &--heading_1
       font-size: 1.5em
