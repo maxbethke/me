@@ -8,9 +8,9 @@
             <p>This site should have given you some insight into my professional life.</p>
             <p>I organize my life in Notion and I love efficiency. That is why I build
               this site on top of Notion, so I would not have to maintain the
-              same data at multiple places, which is a deadly sin.</p>
+              same data at multiple places.</p>
             <p>To make this possible, I wrote a little API based on Express and wrapped around
-              the Vue App you are looking at right now. The Sourcecode of both projects is
+              the Vue App you are looking at right now. The source code of both projects is
               publicly available on GitHub, so you can get an idea of what I do.</p>
             <v-list>
               <v-list-item href="https://github.com/maxbethke/me">
@@ -20,7 +20,10 @@
                 <v-icon>mdi-github</v-icon> maxbethke/me-api
               </v-list-item>
             </v-list>
-            <p>Both apps are deployed to a small cloud VM at <a href="https://www.vultr.com/?ref=9168050">Vultr</a></p>
+            <p>
+              The frontend you are seeing right now was served to you as a static site hosted on AWS S3 via CloudFront.
+              The API that it calls to load its data is hosted serverless on AWS Lambda.
+            </p>
           </v-card-text>
         </v-card>
       </v-col>
@@ -33,7 +36,6 @@
               of this new age is called data.</p>
             <p>When I am not developing software I either do research on resources that interest
               me - which include investment, finance and psychology - read books or meditate.</p>
-            <p>Over at <a href="https://blog.maxbethke.de">my blog 🇩🇪</a> I irregularly write about what is on my mind.</p>
           </v-card-text>
         </v-card>
       </v-col>
