@@ -7,11 +7,17 @@ import {frameworks, languages, misc} from "@/data/skills";
 import {Skill} from "@/components/Skill";
 import {Paper} from "@/components/layout/Paper";
 import {Button} from "@/components/ui/button";
+import {ExternalLink, Mail, PhoneCall} from "lucide-react";
 
 const descriptions = [
   'and I am writing software in php',
   'and I am writing software in typescript',
   'and I am writing software in javascript',
+]
+
+const contactMethods = [
+  {icon: PhoneCall, buttonText: 'Book a Call', url: 'http://schedule.maxbethke.de'},
+  {icon: Mail, buttonText: 'Send an E-Mail', url: 'mailto:office@maxbethke.de'},
 ]
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -30,9 +36,18 @@ const IndexPage: React.FC<PageProps> = () => {
                 repeat={Infinity}
               />
             </div>
+            <Button size={'lg'} asChild>
+              <a
+                href={'https://docs.google.com/document/d/1iTbcPKkHD25vnUTUL7crH1M5fGkTj39UHgfBlhFoz9Y/edit?usp=sharing'}
+                target={'_blank'}
+              >
+                <div className={'flex gap-2 items-center'}>
+                  <ExternalLink/> Open CV
+                </div>
+              </a>
+            </Button>
           </Section>
           <Section className={'h-1/2 flex-col md:flex-row gap-4 md:gap-10'}>
-            {/*<h2>so, what does this mean?</h2>*/}
             <Section>
               <h3>Frameworks</h3>
               <ul>
@@ -53,17 +68,23 @@ const IndexPage: React.FC<PageProps> = () => {
             </Section>
           </Section>
         </div>
-        <Section>
+        <Section className={'items-center'}>
           <h2>Get in touch</h2>
-          <div className={'h-1/2 flex-col md:flex-row gap-4 md:gap-10'}>
-            <Paper>
-              <Section>
-                {/*<StaticImage*/}
-                {/*  src={'./cvIcon.svg'} alt={'CV'}*/}
-                {/*/>*/}
-              </Section>
-            </Paper>
-            <Button>Download</Button>
+          <div className={'flex my-10 flex-col md:flex-row gap-4 md:gap-10'}>
+            {contactMethods.map(method => {
+              const IconComponent = method.icon
+
+              return (
+                <Paper className={'min-w-[200px]'}>
+                  <Section className={'items-center'}>
+                    <IconComponent size={96} className={'text-gray-500'}/>
+                    <Button size={'lg'} asChild className={'w-full'}>
+                      <a href={method.url}>{method.buttonText}</a>
+                    </Button>
+                  </Section>
+                </Paper>
+              )
+            })}
           </div>
         </Section>
       </Page>
