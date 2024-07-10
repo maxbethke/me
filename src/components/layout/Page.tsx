@@ -1,4 +1,5 @@
 import React, {PropsWithChildren} from "react";
+import {Footer} from "@/components/Footer";
 
 export const Page: React.FC = ({children, className, ...props}: PropsWithChildren) => (
   <div
@@ -10,5 +11,6 @@ export const Page: React.FC = ({children, className, ...props}: PropsWithChildre
     {...props}
   >
     {children}
+    <Footer/>
   </div>
 )
