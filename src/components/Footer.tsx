@@ -13,7 +13,7 @@ export const Footer: React.FC = () => (
           Stay hungry, stay foolish 🔥
         </a>
       </Button>
-      <Link to={'/impress'}>Impressum</Link>
+      <Link to={'/impress'}>Impress</Link>
     <div>
       <Button variant={'ghost'} asChild>
         <a
