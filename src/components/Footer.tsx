@@ -1,10 +1,10 @@
 import React from "react";
 import {Button} from "@/components/ui/button";
 import {EnvelopeClosedIcon, GitHubLogoIcon, LinkedInLogoIcon, TwitterLogoIcon} from '@radix-ui/react-icons'
+import {Link} from "gatsby";
 
 export const Footer: React.FC = () => (
   <div className={'flex w-full justify-evenly text-gray-500'}>
-    <div>
       <Button variant={'ghost'} asChild>
         <a
           href={'https://youtu.be/UF8uR6Z6KLc'}
@@ -13,7 +13,7 @@ export const Footer: React.FC = () => (
           Stay hungry, stay foolish 🔥
         </a>
       </Button>
-    </div>
+      <Link to={'/impress'}>Impressum</Link>
     <div>
       <Button variant={'ghost'} asChild>
         <a

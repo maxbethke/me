@@ -51,19 +51,19 @@ const IndexPage: React.FC<PageProps> = () => {
             <Section>
               <h3>Frameworks</h3>
               <ul>
-                {frameworks.map(item => <li><Skill {...item}/></li>)}
+                {frameworks.map((item, key) => <li key={key}><Skill {...item}/></li>)}
               </ul>
             </Section>
             <Section>
               <h3>Languages</h3>
               <ul>
-                {languages.map(item => <li><Skill {...item}/></li>)}
+                {languages.map((item, key) => <li key={key}><Skill {...item}/></li>)}
               </ul>
             </Section>
             <Section className={'h-full'}>
               <h3>Technologies</h3>
               <div className={'flex flex-col flex-wrap h-full overflow-hidden'}>
-                {misc.map(item => <Skill name={item}/>)}
+                {misc.map((item, key) => <Skill key={key} name={item}/>)}
               </div>
             </Section>
           </Section>
@@ -71,11 +71,11 @@ const IndexPage: React.FC<PageProps> = () => {
         <Section className={'items-center'}>
           <h2>Get in touch</h2>
           <div className={'flex my-10 flex-col md:flex-row gap-4 md:gap-10'}>
-            {contactMethods.map(method => {
+            {contactMethods.map((method, key) => {
               const IconComponent = method.icon
 
               return (
-                <Paper className={'min-w-[200px]'}>
+                <Paper key={key} className={'min-w-[200px]'}>
                   <Section className={'items-center'}>
                     <IconComponent size={96} className={'text-gray-500'}/>
                     <Button size={'lg'} asChild className={'w-full'}>
