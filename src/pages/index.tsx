@@ -70,19 +70,21 @@ const IndexPage: React.FC<PageProps> = () => {
         </div>
         <Section className={'items-center'}>
           <h2>Get in touch</h2>
-          <div className={'flex my-10 flex-col md:flex-row gap-4 md:gap-10'}>
+          <div className={'flex my-10 flex-col md:flex-row gap-8 md:gap-10'}>
             {contactMethods.map((method, key) => {
               const IconComponent = method.icon
 
               return (
-                <Paper key={key} className={'min-w-[200px]'}>
-                  <Section className={'items-center'}>
-                    <IconComponent size={96} className={'text-gray-500'}/>
-                    <Button size={'lg'} asChild className={'w-full'}>
-                      <a href={method.url}>{method.buttonText}</a>
-                    </Button>
-                  </Section>
-                </Paper>
+                <a href={method.url}>
+                  <Paper key={key} className={'min-w-[200px]'}>
+                    <Section className={'items-center'}>
+                      <IconComponent size={96} className={'text-gray-500'}/>
+                      <Button size={'lg'} className={'w-full'}>
+                        {method.buttonText}
+                      </Button>
+                    </Section>
+                  </Paper>
+                </a>
               )
             })}
           </div>

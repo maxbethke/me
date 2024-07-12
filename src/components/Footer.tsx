@@ -4,16 +4,16 @@ import {EnvelopeClosedIcon, GitHubLogoIcon, LinkedInLogoIcon, TwitterLogoIcon} f
 import {Link} from "gatsby";
 
 export const Footer: React.FC = () => (
-  <div className={'flex w-full justify-evenly text-gray-500'}>
-      <Button variant={'ghost'} asChild>
-        <a
-          href={'https://youtu.be/UF8uR6Z6KLc'}
-          target={'_blank'}
-        >
-          Stay hungry, stay foolish 🔥
-        </a>
-      </Button>
-      <Link to={'/impress'}>Impress</Link>
+  <div className={'flex flex-col md:flex-row w-full items-center justify-evenly text-gray-500 gap-1'}>
+    <Button variant={'ghost'} asChild>
+      <a
+        href={'https://youtu.be/UF8uR6Z6KLc'}
+        target={'_blank'}
+      >
+        Stay hungry, stay foolish 🔥
+      </a>
+    </Button>
+    <Link to={'/impress'}>Impress</Link>
     <div>
       <Button variant={'ghost'} asChild>
         <a
