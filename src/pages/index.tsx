@@ -7,7 +7,9 @@ import {frameworks, languages, misc} from "@/data/skills";
 import {Skill} from "@/components/Skill";
 import {Paper} from "@/components/layout/Paper";
 import {Button} from "@/components/ui/button";
-import {ExternalLink, Mail, PhoneCall} from "lucide-react";
+import {ExternalLink, Mail} from "lucide-react";
+import {InlineWidget} from "react-calendly";
+import {BodyText} from "@/components/typography/BodyText";
 
 const descriptions = [
   'and I am writing software in php',
@@ -16,7 +18,6 @@ const descriptions = [
 ]
 
 const contactMethods = [
-  {icon: PhoneCall, buttonText: 'Book a Call', url: 'http://schedule.maxbethke.de'},
   {icon: Mail, buttonText: 'Send an E-Mail', url: 'mailto:office@maxbethke.de'},
 ]
 
@@ -70,7 +71,31 @@ const IndexPage: React.FC<PageProps> = () => {
         </div>
         <Section className={'items-center'}>
           <h2>Get in touch</h2>
-          <div className={'flex my-10 flex-col md:flex-row gap-8 md:gap-10'}>
+          <div className={'flex my-8 md:my-10 flex-col md:flex-row gap-4 md:gap-12'}>
+            <Paper>
+              <Section>
+                <div>
+                  <h3>Discovery Call</h3>
+                  <BodyText>30min, Google Meets or Phone</BodyText>
+                </div>
+                <div className={'hidden md:block'}>
+                  <InlineWidget
+                    url="https://calendly.com/maxbethke/chat"
+                    styles={{width: 340, height: 600}}
+                    pageSettings={{
+                      hideEventTypeDetails: true,
+                    }}
+                  />
+                </div>
+                <div className={'block md:hidden'}>
+                  <a href={'http://schedule.maxbethke.de'}>
+                    <Button size={'lg'} className={'w-full'}>
+                      Book a call
+                    </Button>
+                  </a>
+                </div>
+              </Section>
+            </Paper>
             {contactMethods.map((method, key) => {
               const IconComponent = method.icon
 
@@ -78,7 +103,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 <a href={method.url}>
                   <Paper key={key} className={'min-w-[200px]'}>
                     <Section className={'items-center'}>
-                      <IconComponent size={96} className={'text-gray-500'}/>
+                      <IconComponent size={96} className={'text-gray-400'}/>
                       <Button size={'lg'} className={'w-full'}>
                         {method.buttonText}
                       </Button>

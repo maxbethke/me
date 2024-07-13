@@ -5,7 +5,7 @@ export const Page: React.FC = ({children, className, ...props}: PropsWithChildre
   <div
     className={`
       flex flex-col justify-center items-center
-      px-2
+      gap-4
       ${className ?? ''}
     `}
     {...props}
