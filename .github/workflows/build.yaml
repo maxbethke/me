@@ -30,5 +30,4 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Rsync Gatsby build to server
-        run: |
-          rsync -avz -e "ssh -p 65002" public/ u494166457@46.202.156.155
+        run: rsync -avz --delete ./public/ u494166457@46.202.156.155:/public_html/
