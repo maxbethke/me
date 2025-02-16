@@ -32,4 +32,4 @@ jobs:
           ssh-host: 46.202.156.155
           ssh-port: '65002'
       - name: Rsync Gatsby build to server
-        run: rsync -avz -e "ssh -p 65002" --delete ./public/ u494166457@46.202.156.155:/public_html/
+        run: rsync -avz -e "ssh -p 65002" --delete ./public/ u494166457@46.202.156.155:./public_html/
